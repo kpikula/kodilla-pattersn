@@ -19,5 +19,5 @@ public interface EmployeeDao extends CrudRepository<com.kodilla.hibernate.manyto
     List<Employee> retrieveEmployeeWithLastName(@Param("LASTNAME") String lastName);
 
     @Query
-    List<Employee> retrieveEmployeeWithLastNameFragment(@Param("LastNameFragment") String lastNameFragment);
+    List<Employee> retrieveEmployeeWithLastNameFragment(@Param("LASTNAMEFRAGMENT") String lastNameFragment);
 }

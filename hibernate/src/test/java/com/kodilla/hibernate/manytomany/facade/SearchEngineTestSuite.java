@@ -2,7 +2,9 @@ package com.kodilla.hibernate.manytomany.facade;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
-import com.kodilla.hibernate.manytomany.Engine;
+import com.kodilla.hibernate.manytomany.dao.CompanyDao;
+import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,12 +18,16 @@ class SearchEngineTestSuite {
     private SearchEngine searchEngine;
 
     @Autowired
-    private Engine engine;
+    private CompanyDao companyDao;
+
+    @Autowired
+    private EmployeeDao employeeDao;
+
 
     @Test
     public void testSearchEngine() {
         //Given
-        Employee johnSmith = new Employee("John", "Smith");
+        Employee johnMatison = new Employee("John", "Matison");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
 
@@ -29,23 +35,29 @@ class SearchEngineTestSuite {
         Company dataMaesters = new Company("Data Maesters");
         Company greyMatter = new Company("Grey Matter");
 
-        List<Employee> employees = new ArrayList<>();
-        employees.add(johnSmith);
-        employees.add(stephanieClarckson);
-        employees.add(lindaKovalsky);
 
-        List<Company> companies = new ArrayList<>();
-        companies.add(softwareMachine);
-        companies.add(dataMaesters);
-        companies.add(greyMatter);
+        employeeDao.save(johnMatison);
+        employeeDao.save(stephanieClarckson);
+        employeeDao.save(lindaKovalsky);
+
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
 
         //When
-        Engine engine = new Engine(companies, employees);
+
+        List<Employee> employees = searchEngine.retrieveEmployee();
+        List<Company> companies = searchEngine.retrieveCompany();
 
         //Then
+        Assertions.assertEquals(1, employees.size());
+        Assertions.assertEquals(1, companies.size());
+
+        //Cleanup
         try {
-            searchEngine.find(engine);
-        } catch (ExceptionProcessing e) {
+            companyDao.deleteAll();
+            employeeDao.deleteAll();
+        } catch (Exception e) {
         }
     }
 }

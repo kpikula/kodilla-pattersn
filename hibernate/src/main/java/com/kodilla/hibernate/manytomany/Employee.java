@@ -17,7 +17,7 @@ import java.util.List;
         ),
         @NamedQuery(
                 name = "Employee.retrieveEmployeeWithLastNameFragment",
-                query = "FROM Employee WHERE lastName LIKE :LastNameFragment"
+                query = "FROM Employee WHERE lastName LIKE :LASTNAMEFRAGMENT"
         )}
 )
 
