@@ -22,7 +22,6 @@ class SearchEngineTestSuite {
     @Autowired
     private EmployeeDao employeeDao;
 
-
     @Test
     public void testSearchEngine() {
         //Given
@@ -33,7 +32,6 @@ class SearchEngineTestSuite {
         Company softwareMachine = new Company("Software Machine");
         Company dataMaesters = new Company("Data Maesters");
         Company greyMatter = new Company("Grey Matter");
-
 
         employeeDao.save(johnMatison);
         employeeDao.save(stephanieClarckson);
@@ -48,7 +46,6 @@ class SearchEngineTestSuite {
         List<Employee> employees = searchEngine.retrieveEmployee("Ma");
         List<Company> companies = searchEngine.retrieveCompany("Ma");
 
-
         //Cleanup
         try {
             //Then
@@ -59,6 +56,5 @@ class SearchEngineTestSuite {
             companyDao.deleteAll();
             employeeDao.deleteAll();
         }
-
     }
 }
