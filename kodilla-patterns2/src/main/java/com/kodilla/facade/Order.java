@@ -1,4 +1,4 @@
-package com.kodilla.kodillapatterns2.facade;
+package com.kodilla.facade;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
