@@ -16,12 +16,12 @@ public class SearchEngine {
     @Autowired
     private EmployeeDao employeeDao;
 
-    public List<Employee> retrieveEmployee() {
-         return employeeDao.retrieveEmployeeWithLastNameFragment("Ma");
+    public List<Employee> retrieveEmployee(String lastNameFragment) {
+        return employeeDao.retrieveEmployeeWithLastNameFragment(lastNameFragment);
     }
 
-    public List<Company> retrieveCompany() {
-        return companyDao.retrieveCompanyWithNameFragment("Ma");
+    public List<Company> retrieveCompany(String companyNameFragment) {
+        return companyDao.retrieveCompanyWithNameFragment(companyNameFragment);
     }
 }
 

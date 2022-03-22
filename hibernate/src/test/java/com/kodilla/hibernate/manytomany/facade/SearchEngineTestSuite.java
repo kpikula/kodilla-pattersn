@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
@@ -46,18 +45,20 @@ class SearchEngineTestSuite {
 
         //When
 
-        List<Employee> employees = searchEngine.retrieveEmployee();
-        List<Company> companies = searchEngine.retrieveCompany();
+        List<Employee> employees = searchEngine.retrieveEmployee("Ma");
+        List<Company> companies = searchEngine.retrieveCompany("Ma");
 
-        //Then
-        Assertions.assertEquals(1, employees.size());
-        Assertions.assertEquals(1, companies.size());
 
         //Cleanup
         try {
+            //Then
+            Assertions.assertEquals(1, employees.size());
+            Assertions.assertEquals(3, companies.size());
+        } catch (Exception e) {
+        } finally {
             companyDao.deleteAll();
             employeeDao.deleteAll();
-        } catch (Exception e) {
         }
+
     }
 }
