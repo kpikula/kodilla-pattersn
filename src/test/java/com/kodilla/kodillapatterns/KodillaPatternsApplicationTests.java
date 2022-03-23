@@ -9,5 +9,4 @@ class KodillaPatternsApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
