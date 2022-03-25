@@ -6,10 +6,8 @@ import com.kodilla.adapter.bookclassifier.libraryb.Book;
 import com.kodilla.adapter.bookclassifier.libraryb.BookSignature;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class MedianAdapter extends MedianAdaptee implements Classifier {
 
