@@ -13,8 +13,8 @@ class MedianAdapterTestSuite {
     @Test
     public void testMedianPublicationYear() {
         //Given
-        BookA book1 = new BookA("Max Czornyj", "Grób", 2020, "ABC123");
-        BookA book2 = new BookA("Max Czornyj", "Mortalista", 2021, "ABC124");
+        BookA book1 = new BookA("Max Czornyj", "Grób", 2018, "ABC123");
+        BookA book2 = new BookA("Max Czornyj", "Mortalista", 2020, "ABC124");
         BookA book3 = new BookA("Max Czornyj", "Obcy", 2022, "ABC125");
 
         Set<BookA> books = new HashSet<>();
@@ -30,6 +30,6 @@ class MedianAdapterTestSuite {
         //Then
         System.out.println("Median publication year in the library A is: " + medianYearOfPublication);
         assertEquals(3, books.size());
-        assertEquals(medianYearOfPublication, 2021);
+        assertEquals(2020, medianYearOfPublication);
     }
 }

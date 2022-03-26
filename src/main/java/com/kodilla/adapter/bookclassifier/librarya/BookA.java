@@ -6,14 +6,15 @@ public class BookA {
     private final String author;
     private final String title;
     private final int publicationYear;
-    private final String signature;
+    private final String signatureA;
+
 
     public BookA(final String author, final String title,
-                 final int publicationYear, final String signature) {
+                 final int publicationYear, final String signatureA) {
         this.author = author;
         this.title = title;
         this.publicationYear = publicationYear;
-        this.signature = signature;
+        this.signatureA = signatureA;
     }
 
     public String getAuthor() {
@@ -28,8 +29,8 @@ public class BookA {
         return publicationYear;
     }
 
-    public String getSignature() {
-        return signature;
+    public String getSignatureA() {
+        return signatureA;
     }
 
     @Override
@@ -37,12 +38,12 @@ public class BookA {
         if (this == o) return true;
         if (!(o instanceof BookA)) return false;
         BookA book = (BookA) o;
-        return getSignature().equals(book.getSignature());
+        return getSignatureA().equals(book.getSignatureA());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getSignature());
+        return Objects.hash(getSignatureA());
     }
 
     @Override
@@ -51,7 +52,7 @@ public class BookA {
                 "author='" + author + '\'' +
                 ", title='" + title + '\'' +
                 ", publicationYear=" + publicationYear +
-                ", signature='" + signature + '\'' +
+                ", signature='" + signatureA + '\'' +
                 '}';
     }
 }
