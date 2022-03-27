@@ -2,15 +2,15 @@ package com.kodilla.adapter.bookclassifier.librarya;
 
 import java.util.Objects;
 
-public class BookA {
+public class Book {
     private final String author;
     private final String title;
     private final int publicationYear;
     private final String signatureA;
 
 
-    public BookA(final String author, final String title,
-                 final int publicationYear, final String signatureA) {
+    public Book(final String author, final String title,
+                final int publicationYear, final String signatureA) {
         this.author = author;
         this.title = title;
         this.publicationYear = publicationYear;
@@ -36,8 +36,8 @@ public class BookA {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof BookA)) return false;
-        BookA book = (BookA) o;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
         return getSignatureA().equals(book.getSignatureA());
     }
 

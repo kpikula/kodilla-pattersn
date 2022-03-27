@@ -1,6 +1,6 @@
 package com.kodilla.adapter.bookclassifier;
 
-import com.kodilla.adapter.bookclassifier.librarya.BookA;
+import com.kodilla.adapter.bookclassifier.librarya.Book;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -13,11 +13,11 @@ class MedianAdapterTestSuite {
     @Test
     public void testMedianPublicationYear() {
         //Given
-        BookA book1 = new BookA("Max Czornyj", "Grób", 2018, "ABC123");
-        BookA book2 = new BookA("Max Czornyj", "Mortalista", 2020, "ABC124");
-        BookA book3 = new BookA("Max Czornyj", "Obcy", 2022, "ABC125");
+        Book book1 = new Book("Max Czornyj", "Grób", 2018, "ABC123");
+        Book book2 = new Book("Max Czornyj", "Mortalista", 2020, "ABC124");
+        Book book3 = new Book("Max Czornyj", "Obcy", 2022, "ABC125");
 
-        Set<BookA> books = new HashSet<>();
+        Set<Book> books = new HashSet<>();
         books.add(book1);
         books.add(book2);
         books.add(book3);
